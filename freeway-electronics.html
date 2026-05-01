@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freeway Electronics Ltd. — Cyprus</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9933A;
+    --gold-light: #E8B55A;
+    --gold-dim: #7A5520;
+    --dark: #0C0D0F;
+    --dark-2: #131519;
+    --dark-3: #1B1E24;
+    --dark-4: #232830;
+    --surface: #1F2228;
+    --border: rgba(201,147,58,0.18);
+    --border-dim: rgba(255,255,255,0.07);
+    --text: #F0EDE8;
+    --text-muted: #8A8E97;
+    --text-dim: #555A63;
+    --accent-blue: #3A8FC9;
+    --red: #C94040;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(12,13,15,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 68px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .logo-mark {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px; color: var(--dark); letter-spacing: 0;
+  }
+  .logo-text {
+    display: flex; flex-direction: column; line-height: 1;
+  }
+  .logo-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 2px; color: var(--text);
+  }
+  .logo-sub {
+    font-size: 9px; letter-spacing: 3px; color: var(--gold);
+    text-transform: uppercase; font-weight: 500;
+  }
+  .nav-links {
+    display: flex; gap: 36px; list-style: none;
+  }
+  .nav-links a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: transparent; border: 1px solid var(--gold);
+    color: var(--gold); padding: 8px 22px; font-size: 12px;
+    letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; font-family: 'Barlow', sans-serif;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--dark); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,147,58,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,147,58,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute; top: 20%; right: 10%;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,147,58,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; max-width: 780px; }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+  }
+  .eyebrow-line { width: 48px; height: 1px; background: var(--gold); }
+  .eyebrow-text {
+    font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 8vw, 108px);
+    line-height: 0.92; letter-spacing: 2px;
+    color: var(--text); margin-bottom: 8px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 18px; color: var(--text-muted); font-weight: 300;
+    max-width: 500px; margin: 28px 0 44px; line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    background: var(--gold); color: var(--dark);
+    padding: 14px 36px; font-size: 13px; letter-spacing: 1.5px;
+    text-transform: uppercase; font-weight: 700; border: none;
+    cursor: pointer; transition: all 0.2s; font-family: 'Barlow', sans-serif;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-ghost {
+    background: transparent; border: 1px solid var(--border-dim);
+    color: var(--text-muted); padding: 14px 36px; font-size: 13px;
+    letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; font-family: 'Barlow', sans-serif;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    position: absolute; bottom: 60px; right: 48px;
+    display: flex; gap: 48px;
+  }
+  .hero-stat { text-align: right; }
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px; color: var(--gold); line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 11px; letter-spacing: 2px; color: var(--text-dim);
+    text-transform: uppercase; font-weight: 500;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 100px 48px; }
+  .section-header { margin-bottom: 64px; }
+  .section-label {
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 5vw, 64px); letter-spacing: 2px;
+    line-height: 0.95; color: var(--text);
+  }
+  .section-title span { color: var(--gold); }
+
+  /* ── TICKER ── */
+  .ticker-wrap {
+    background: var(--gold); padding: 14px 0; overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex; gap: 0; animation: ticker 30s linear infinite;
+  }
+  .ticker-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px; letter-spacing: 3px; color: var(--dark);
+    padding: 0 32px;
+  }
+  .ticker-dot {
+    color: rgba(12,13,15,0.4); padding: 0 4px;
+  }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── PRODUCTS ── */
+  .products-section { background: var(--dark-2); }
+  .filter-bar {
+    display: flex; gap: 4px; margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: transparent; border: 1px solid var(--border-dim);
+    color: var(--text-muted); padding: 8px 20px; font-size: 12px;
+    letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; font-family: 'Barlow', sans-serif;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .filter-btn.active {
+    background: var(--gold); border-color: var(--gold);
+    color: var(--dark);
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2px;
+  }
+  .product-card {
+    background: var(--dark-3);
+    border: 1px solid var(--border-dim);
+    padding: 32px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .product-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold); opacity: 0; transition: opacity 0.25s;
+  }
+  .product-card:hover {
+    background: var(--dark-4);
+    border-color: var(--border);
+    transform: translateY(-2px);
+  }
+  .product-card:hover::before { opacity: 1; }
+  .product-badge {
+    display: inline-block; font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700;
+    padding: 4px 10px; margin-bottom: 20px; border-radius: 2px;
+  }
+  .badge-new { background: var(--gold); color: var(--dark); }
+  .badge-popular { background: var(--accent-blue); color: #fff; }
+  .badge-sale { background: var(--red); color: #fff; }
+  .badge-pro { background: var(--dark-4); color: var(--gold); border: 1px solid var(--gold-dim); }
+  .product-icon {
+    font-size: 48px; margin-bottom: 24px; display: block; line-height: 1;
+  }
+  .product-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 700; letter-spacing: 0.5px;
+    color: var(--text); margin-bottom: 6px; line-height: 1.2;
+  }
+  .product-model {
+    font-size: 11px; letter-spacing: 2px; color: var(--text-dim);
+    text-transform: uppercase; margin-bottom: 16px; font-weight: 500;
+  }
+  .product-desc {
+    font-size: 14px; color: var(--text-muted); line-height: 1.65;
+    margin-bottom: 24px; flex: 1;
+  }
+  .product-specs {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px; margin-bottom: 24px;
+  }
+  .spec-item {
+    background: var(--dark-2); padding: 10px 12px; border-radius: 2px;
+  }
+  .spec-label {
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600; display: block; margin-bottom: 3px;
+  }
+  .spec-val {
+    font-size: 13px; color: var(--text); font-weight: 500;
+  }
+  .product-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid var(--border-dim); padding-top: 20px; margin-top: 4px;
+  }
+  .product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px; color: var(--gold); letter-spacing: 1px;
+  }
+  .product-price-vat {
+    font-size: 10px; color: var(--text-dim); letter-spacing: 1px;
+    text-transform: uppercase; margin-top: -4px;
+  }
+  .product-avail {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 11px; color: var(--text-dim); text-transform: uppercase;
+    letter-spacing: 1px; font-weight: 600;
+  }
+  .avail-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+  }
+  .avail-dot.in { background: #4CAF50; box-shadow: 0 0 6px rgba(76,175,80,0.5); }
+  .avail-dot.low { background: var(--gold); box-shadow: 0 0 6px rgba(201,147,58,0.5); }
+  .avail-dot.out { background: var(--red); }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+    overflow-y: auto; padding: 48px 24px;
+  }
+  .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+  .modal {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    max-width: 760px; width: 100%;
+    position: relative;
+    animation: modalIn 0.25s ease;
+  }
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    background: transparent; border: 1px solid var(--border-dim);
+    color: var(--text-muted); width: 36px; height: 36px;
+    font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .modal-close:hover { border-color: var(--gold); color: var(--gold); }
+  .modal-header {
+    padding: 36px 40px 28px;
+    border-bottom: 1px solid var(--border-dim);
+  }
+  .modal-badge { margin-bottom: 16px; }
+  .modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px; letter-spacing: 2px; color: var(--text);
+  }
+  .modal-model {
+    font-size: 12px; letter-spacing: 3px; color: var(--gold);
+    text-transform: uppercase; font-weight: 600; margin-top: 4px;
+  }
+  .modal-body { padding: 32px 40px; }
+  .modal-desc { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 32px; }
+  .modal-specs-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px; margin-bottom: 32px;
+  }
+  .modal-spec {
+    background: var(--dark-2); padding: 16px 18px;
+  }
+  .modal-spec-label {
+    font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600; margin-bottom: 6px; display: block;
+  }
+  .modal-spec-val {
+    font-size: 14px; color: var(--text); font-weight: 500; line-height: 1.3;
+  }
+  .modal-features { margin-bottom: 32px; }
+  .modal-features h4 {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 16px;
+  }
+  .feature-list {
+    list-style: none; display: flex; flex-direction: column; gap: 10px;
+  }
+  .feature-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 14px; color: var(--text-muted); line-height: 1.5;
+  }
+  .feature-list li::before {
+    content: '▸'; color: var(--gold); font-size: 12px; flex-shrink: 0; margin-top: 2px;
+  }
+  .modal-footer {
+    padding: 24px 40px;
+    border-top: 1px solid var(--border-dim);
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--dark-2);
+  }
+  .modal-price-block {}
+  .modal-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px; color: var(--gold); line-height: 1;
+  }
+  .modal-price-note {
+    font-size: 11px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase;
+  }
+  .modal-info {
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+  }
+  .modal-avail {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;
+    color: var(--text-muted);
+  }
+  .inquire-note {
+    font-size: 12px; color: var(--text-dim); letter-spacing: 1px;
+    text-align: right;
+  }
+
+  /* ── ABOUT ── */
+  .about-section { background: var(--dark); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .about-visual {
+    position: relative; height: 440px;
+  }
+  .about-bg-rect {
+    position: absolute; inset: 0;
+    border: 1px solid var(--border);
+    background: var(--dark-3);
+  }
+  .about-accent {
+    position: absolute; bottom: -16px; right: -16px;
+    width: 120px; height: 120px;
+    background: var(--gold); opacity: 0.08;
+  }
+  .about-flag {
+    position: absolute; top: 32px; left: 32px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .flag-bar { width: 48px; height: 3px; }
+  .flag-bar.b1 { background: var(--gold); }
+  .flag-bar.b2 { background: var(--gold); opacity: 0.5; }
+  .flag-bar.b3 { background: var(--gold); opacity: 0.25; }
+  .about-stat-grid {
+    position: absolute; bottom: 32px; left: 32px; right: 32px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  }
+  .about-stat {
+    background: var(--dark-2); padding: 20px;
+    border: 1px solid var(--border-dim);
+  }
+  .about-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; color: var(--gold); line-height: 1;
+  }
+  .about-stat-lbl {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600; margin-top: 4px;
+  }
+  .about-loc {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .about-loc-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px; letter-spacing: 4px; color: rgba(201,147,58,0.12);
+    line-height: 1;
+  }
+  .about-content {}
+  .about-body {
+    font-size: 15px; color: var(--text-muted); line-height: 1.85;
+    margin-top: 28px; margin-bottom: 36px;
+  }
+  .about-pillars {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .pillar {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 16px 20px; border-left: 2px solid var(--gold);
+    background: var(--dark-3);
+  }
+  .pillar-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .pillar-title {
+    font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px;
+    letter-spacing: 0.5px;
+  }
+  .pillar-desc { font-size: 13px; color: var(--text-muted); }
+
+  /* ── BRANDS ── */
+  .brands-section { background: var(--dark-2); padding: 60px 48px; }
+  .brands-label {
+    font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600; text-align: center; margin-bottom: 32px;
+  }
+  .brands-list {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .brand-item {
+    padding: 12px 28px; border: 1px solid var(--border-dim);
+    font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px;
+    color: var(--text-dim); transition: all 0.2s;
+  }
+  .brand-item:hover { color: var(--gold); border-color: var(--border); }
+
+  /* ── CONTACT ── */
+  .contact-section { background: var(--dark); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  }
+  .contact-info {}
+  .contact-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 20px 0; border-bottom: 1px solid var(--border-dim);
+  }
+  .contact-icon {
+    width: 36px; height: 36px; background: var(--dark-3);
+    border: 1px solid var(--border-dim); display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0; font-size: 16px;
+  }
+  .contact-detail-label {
+    font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600; margin-bottom: 4px;
+  }
+  .contact-detail-val {
+    font-size: 14px; color: var(--text);
+  }
+  .contact-form {}
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-dim); font-weight: 600; margin-bottom: 8px;
+  }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; background: var(--dark-3); border: 1px solid var(--border-dim);
+    color: var(--text); padding: 12px 16px; font-size: 14px; font-family: 'Barlow', sans-serif;
+    outline: none; transition: border-color 0.2s; resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--gold);
+  }
+  .form-group select option { background: var(--dark-3); }
+  .form-group textarea { min-height: 100px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark-2); border-top: 1px solid var(--border-dim);
+    padding: 48px;
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .footer-copy {
+    font-size: 12px; color: var(--text-dim); letter-spacing: 1px;
+  }
+  .footer-links {
+    display: flex; gap: 24px; list-style: none;
+  }
+  .footer-links a {
+    font-size: 11px; color: var(--text-dim); text-decoration: none;
+    letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-gold { color: var(--gold); }
+
+  /* ── HIDDEN PRODUCT DATA ── */
+  .hidden { display: none; }
+
+  /* Animate in on scroll */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .fade-up.visible {
+    opacity: 1; transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links, .nav-cta { display: none; }
+    section { padding: 64px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .hero-stats { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-visual { height: 280px; }
+    footer, .brands-section { padding: 40px 20px; }
+    .modal-specs-grid { grid-template-columns: 1fr 1fr; }
+    .modal-header, .modal-body, .modal-footer { padding-left: 24px; padding-right: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">FE</div>
+    <div class="logo-text">
+      <span class="logo-name">FREEWAY</span>
+      <span class="logo-sub">Electronics Ltd.</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Established 2006 · Limassol, Cyprus</span>
+    </div>
+    <h1>POWERING<br><span>TOMORROW'S</span><br>WORLD</h1>
+    <p class="hero-sub">Cyprus's premier electronics distributor — bringing cutting-edge technology from the world's leading brands to homes and businesses across the Mediterranean.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Explore Products</a>
+      <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Our Story</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">18+</div>
+      <div class="hero-stat-label">Years Active</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">200+</div>
+      <div class="hero-stat-label">Products</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">40+</div>
+      <div class="hero-stat-label">Brands</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner" id="ticker"></div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="section-header">
+    <div class="section-label">Our Catalogue</div>
+    <h2 class="section-title">FEATURED<br><span>PRODUCTS</span></h2>
+  </div>
+  <div class="filter-bar" id="filterBar"></div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-visual fade-up">
+      <div class="about-bg-rect"></div>
+      <div class="about-accent"></div>
+      <div class="about-flag">
+        <div class="flag-bar b1"></div>
+        <div class="flag-bar b2"></div>
+        <div class="flag-bar b3"></div>
+      </div>
+      <div class="about-loc">
+        <div class="about-loc-name">CYPRUS</div>
+      </div>
+      <div class="about-stat-grid">
+        <div class="about-stat">
+          <div class="about-stat-num">2006</div>
+          <div class="about-stat-lbl">Founded</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">120+</div>
+          <div class="about-stat-lbl">Clients</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">5</div>
+          <div class="about-stat-lbl">Showrooms</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">EU</div>
+          <div class="about-stat-lbl">Certified</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-content fade-up">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">BUILT ON<br><span>TRUST &</span><br>TECHNOLOGY</h2>
+      <p class="about-body">Founded in Limassol in 2006, Freeway Electronics Ltd. has grown from a small import business into Cyprus's most trusted electronics distributor. We partner with the world's top manufacturers to bring certified, warranty-backed technology to consumers and enterprises across the island and the wider Eastern Mediterranean region.<br><br>Every product we carry has been rigorously tested and meets EU standards for safety and performance.</p>
+      <div class="about-pillars">
+        <div class="pillar">
+          <span class="pillar-icon">🛡️</span>
+          <div>
+            <div class="pillar-title">Genuine Products, Full Warranty</div>
+            <div class="pillar-desc">Every item is 100% authentic with full manufacturer warranty and EU compliance certification.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">⚡</span>
+          <div>
+            <div class="pillar-title">Expert Technical Support</div>
+            <div class="pillar-desc">Our in-house engineers provide pre-sales advice and post-sales support across Cyprus.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">🌍</span>
+          <div>
+            <div class="pillar-title">Regional Distribution</div>
+            <div class="pillar-desc">We ship throughout Cyprus and partner with retailers across the Eastern Mediterranean.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<div class="brands-section" id="brands">
+  <div class="brands-label">Authorised Distributor For</div>
+  <div class="brands-list" id="brandsList"></div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-header">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">CONTACT<br><span>US</span></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-detail-label">Head Office</div>
+          <div class="contact-detail-val">28 Archiepiskopou Makariou III Ave.<br>Limassol 3105, Cyprus</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-detail-label">Phone</div>
+          <div class="contact-detail-val">+357 25 123 456</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-val">info@freewayelectronics.com.cy</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-detail-label">Working Hours</div>
+          <div class="contact-detail-val">Mon–Fri: 08:30 – 17:30<br>Sat: 09:00 – 14:00</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🏛️</div>
+        <div>
+          <div class="contact-detail-label">Registration</div>
+          <div class="contact-detail-val">Reg. No. HE 178432<br>VAT: CY12178432X</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <select>
+          <option value="">Select a topic…</option>
+          <option>Product Enquiry</option>
+          <option>Quote Request</option>
+          <option>Technical Support</option>
+          <option>Wholesale / Partnership</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us how we can help…"></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%; cursor:pointer;" onclick="alert('Thank you for your message. Our team will contact you shortly.')">Send Enquiry</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo" style="text-decoration:none; display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+        <div class="logo-mark">FE</div>
+        <div class="logo-text">
+          <span class="logo-name">FREEWAY</span>
+          <span class="logo-sub">Electronics Ltd.</span>
+        </div>
+      </div>
+      <div class="footer-copy">© 2024 Freeway Electronics Ltd. All rights reserved. · Limassol, <span class="footer-gold">Cyprus</span></div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Sale</a></li>
+      <li><a href="#">Warranty Info</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('open')">✕</button>
+    <div class="modal-header">
+      <div class="modal-badge" id="mBadge"></div>
+      <div class="modal-title" id="mTitle"></div>
+      <div class="modal-model" id="mModel"></div>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc" id="mDesc"></p>
+      <div class="modal-specs-grid" id="mSpecs"></div>
+      <div class="modal-features">
+        <h4>Key Features</h4>
+        <ul class="feature-list" id="mFeatures"></ul>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="modal-price-block">
+        <div class="modal-price" id="mPrice"></div>
+        <div class="modal-price-note">Excl. VAT · For pricing enquiries contact us</div>
+      </div>
+      <div class="modal-info">
+        <div class="modal-avail" id="mAvail"></div>
+        <div class="inquire-note">Purchase not available online.<br>Contact us for a quote or visit a showroom.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PRODUCTS = [
+  // ── TELEVISIONS ──
+  {
+    id: 1, category: 'Televisions', badge: 'new', badgeText: 'New',
+    icon: '📺', name: 'QuantumView Pro 65"', model: 'QVP-65UHD',
+    price: '€1,299', avail: 'in',
+    desc: 'Experience cinema-quality visuals at home. The QuantumView Pro 65" features QLED quantum dot technology delivering 1.07 billion colours with peak brightness of 2000 nits, perfect for bright Mediterranean living rooms.',
+    specs: [
+      {l:'Display', v:'65" QLED 4K'}, {l:'Resolution', v:'3840 × 2160'},
+      {l:'Refresh Rate', v:'144 Hz'}, {l:'HDR', v:'HDR10+ / Dolby Vision'},
+      {l:'Brightness', v:'2000 nits peak'}, {l:'Smart OS', v:'Tizen 7.0'},
+    ],
+    features: [
+      'Neural Quantum Processor 4K for AI-enhanced upscaling',
+      'Object Tracking Sound+ with 6.2.4-channel audio',
+      'Gaming Hub with AMD FreeSync Premium Pro support',
+      '4 × HDMI 2.1, 2 × USB 3.0, Wi-Fi 6E & Bluetooth 5.2',
+      'Energy efficiency rating: EU Class E',
+    ]
+  },
+  {
+    id: 2, category: 'Televisions', badge: 'popular', badgeText: 'Popular',
+    icon: '📺', name: 'OmniOLED Slim 55"', model: 'OOS-55EVO',
+    price: '€1,849', avail: 'in',
+    desc: 'Powered by the latest OLED evo panel technology, the OmniOLED Slim achieves perfect blacks and infinite contrast in an astonishingly thin profile of just 3.8 mm at its thinnest point.',
+    specs: [
+      {l:'Display', v:'55" OLED Evo'}, {l:'Resolution', v:'4K UHD'},
+      {l:'Contrast', v:'Infinite : 1'}, {l:'HDR', v:'Dolby Vision IQ'},
+      {l:'Sound', v:'60W Dolby Atmos'}, {l:'Smart OS', v:'webOS 23'},
+    ],
+    features: [
+      'α9 AI Processor Gen6 with deep learning picture & sound',
+      'Self-lit OLED pixels deliver true blacks pixel by pixel',
+      'Filmmaker Mode for director-intended colour accuracy',
+      'NVIDIA G-SYNC Compatible & VRR at 120 Hz',
+      'Magic Remote with voice assistant compatibility',
+    ]
+  },
+  {
+    id: 3, category: 'Televisions', badge: 'sale', badgeText: 'Sale',
+    icon: '📺', name: 'CrystalView 43"', model: 'CVS-43FHD',
+    price: '€499', avail: 'in',
+    desc: 'The perfect choice for bedrooms, kitchens or second living spaces. The CrystalView 43" brings reliable 4K performance with smart connectivity at an accessible price point.',
+    specs: [
+      {l:'Display', v:'43" LED 4K'}, {l:'Resolution', v:'3840 × 2160'},
+      {l:'Refresh Rate', v:'60 Hz'}, {l:'HDR', v:'HDR10'},
+      {l:'Ports', v:'3×HDMI, 2×USB'}, {l:'Smart OS', v:'Android TV 11'},
+    ],
+    features: [
+      'Google Assistant built-in with voice remote',
+      'Chromecast built-in for seamless streaming',
+      'Dolby Digital Plus audio processing',
+      'Low Blue Light mode for eye comfort',
+      'EU Energy Class F',
+    ]
+  },
+
+  // ── LAPTOPS ──
+  {
+    id: 4, category: 'Laptops', badge: 'new', badgeText: 'New',
+    icon: '💻', name: 'AlphaBook Pro 16', model: 'ABP-16-M3U',
+    price: '€2,199', avail: 'in',
+    desc: 'Crafted for professionals who demand performance and portability. The AlphaBook Pro 16 houses the latest 12-core processor inside a precision-machined aluminium unibody weighing just 1.9 kg.',
+    specs: [
+      {l:'CPU', v:'12-Core 5.2 GHz'}, {l:'RAM', v:'32 GB LPDDR5'},
+      {l:'Storage', v:'1 TB NVMe SSD'}, {l:'Display', v:'16.2" Liquid Retina XDR'},
+      {l:'GPU', v:'18-Core Integrated'}, {l:'Battery', v:'Up to 22 hrs'},
+    ],
+    features: [
+      'Mini-LED display with 1600 nits peak brightness',
+      'ProMotion adaptive refresh up to 120 Hz',
+      'Wi-Fi 6E, Bluetooth 5.3, Thunderbolt 4 × 3',
+      '1080p FaceTime HD camera with Centre Stage',
+      'MagSafe 3 fast charging — 50% in 30 minutes',
+    ]
+  },
+  {
+    id: 5, category: 'Laptops', badge: 'pro', badgeText: 'Pro',
+    icon: '💻', name: 'XStream Creator 15', model: 'XSC-15-RTX',
+    price: '€1,649', avail: 'low',
+    desc: 'The XStream Creator 15 is engineered for content creators and 3D artists, combining a desktop-class GPU with a colour-accurate display factory-calibrated to Delta E < 2.',
+    specs: [
+      {l:'CPU', v:'Intel Core Ultra 9'}, {l:'RAM', v:'64 GB DDR5-5600'},
+      {l:'Storage', v:'2 TB PCIe Gen4'}, {l:'Display', v:'15.6" 4K OLED 120Hz'},
+      {l:'GPU', v:'RTX 4080 16 GB'}, {l:'Weight', v:'2.1 kg'},
+    ],
+    features: [
+      'Factory-calibrated OLED panel covering 100% DCI-P3',
+      'NVIDIA Studio Driver optimised for Adobe & Autodesk',
+      'Advanced cooling with liquid metal thermal compound',
+      'SD card reader (UHS-II), 3 × USB-C Thunderbolt 4',
+      'Chiclet keyboard with per-key RGB and 1.8 mm travel',
+    ]
+  },
+  {
+    id: 6, category: 'Laptops', badge: 'popular', badgeText: 'Popular',
+    icon: '💻', name: 'FlexBook Air 13', model: 'FBA-13-S',
+    price: '€799', avail: 'in',
+    desc: 'Ultra-thin at just 12.9 mm, the FlexBook Air 13 delivers all-day battery life and powerful performance for everyday computing, commuting and study.',
+    specs: [
+      {l:'CPU', v:'AMD Ryzen 7 8840U'}, {l:'RAM', v:'16 GB LPDDR5X'},
+      {l:'Storage', v:'512 GB NVMe'}, {l:'Display', v:'13.3" 2.8K OLED'},
+      {l:'Battery', v:'Up to 18 hrs'}, {l:'Weight', v:'1.12 kg'},
+    ],
+    features: [
+      'Fanless OLED panel — silent, cool operation',
+      'AMD Radeon 780M integrated graphics for light creative work',
+      'Fast-charge: 50% in 35 minutes via USB-C PD',
+      'Wi-Fi 6E, Bluetooth 5.3, HDMI 2.1 out',
+      'Fingerprint reader embedded in power button',
+    ]
+  },
+
+  // ── SMARTPHONES ──
+  {
+    id: 7, category: 'Smartphones', badge: 'new', badgeText: 'New',
+    icon: '📱', name: 'NovaPeak 15 Ultra', model: 'NP-15U-256',
+    price: '€1,399', avail: 'in',
+    desc: 'The NovaPeak 15 Ultra pushes smartphone photography to professional territory with its triple periscope camera system and a 1-inch sensor co-engineered with a renowned optics brand.',
+    specs: [
+      {l:'Chipset', v:'Snapdragon 8 Gen 3'}, {l:'RAM', v:'12 GB LPDDR5X'},
+      {l:'Storage', v:'256 / 512 GB'}, {l:'Display', v:'6.8" AMOLED 120Hz'},
+      {l:'Main Camera', v:'200 MP f/1.7'}, {l:'Battery', v:'5100 mAh'},
+    ],
+    features: [
+      '200 MP main + 50 MP 5× periscope + 12 MP ultrawide',
+      '8K 24fps video recording with optical stabilisation',
+      '100W wired + 50W wireless charging',
+      'IP68 dust & water resistance',
+      'Satellite emergency SOS capable',
+    ]
+  },
+  {
+    id: 8, category: 'Smartphones', badge: 'popular', badgeText: 'Popular',
+    icon: '📱', name: 'NovaPeak 15', model: 'NP-15-128',
+    price: '€899', avail: 'in',
+    desc: 'The standard NovaPeak 15 brings flagship aesthetics and performance to a slightly more accessible price, retaining the stunning ProMotion display and powerful triple-camera array.',
+    specs: [
+      {l:'Chipset', v:'Snapdragon 8 Gen 3'}, {l:'RAM', v:'8 GB'},
+      {l:'Storage', v:'128 / 256 GB'}, {l:'Display', v:'6.1" Super Retina'},
+      {l:'Main Camera', v:'48 MP f/1.8'}, {l:'Battery', v:'4400 mAh'},
+    ],
+    features: [
+      '48 MP + 12 MP 2× + 12 MP ultrawide triple system',
+      'ProMotion 1–120 Hz adaptive display',
+      '20W MagSafe wireless charging',
+      'Emergency SOS via satellite',
+      'Face ID next-gen biometric unlock',
+    ]
+  },
+  {
+    id: 9, category: 'Smartphones', badge: 'sale', badgeText: 'Sale',
+    icon: '📱', name: 'BudgetX Pro 5G', model: 'BXP-5G-64',
+    price: '€289', avail: 'in',
+    desc: 'Don\'t let the price fool you — the BudgetX Pro 5G delivers genuine 5G connectivity, a 90 Hz AMOLED display, and 50 MP photography in a package that won\'t strain your wallet.',
+    specs: [
+      {l:'Chipset', v:'MediaTek Dimensity 7200'}, {l:'RAM', v:'6 GB'},
+      {l:'Storage', v:'128 GB + microSD'}, {l:'Display', v:'6.4" AMOLED 90Hz'},
+      {l:'Camera', v:'50 MP + 8 MP + 2 MP'}, {l:'Battery', v:'5000 mAh'},
+    ],
+    features: [
+      'Sub-6 GHz 5G on both SIM slots',
+      '33W fast charging — full charge in 65 minutes',
+      'Side-mounted fingerprint sensor',
+      'IP52 splash resistance',
+      'Android 14 with 3 years of OS updates guaranteed',
+    ]
+  },
+
+  // ── AUDIO ──
+  {
+    id: 10, category: 'Audio', badge: 'pro', badgeText: 'Pro',
+    icon: '🎧', name: 'SoundElite ANC Pro', model: 'SE-ANC-PRO',
+    price: '€449', avail: 'in',
+    desc: 'Reference-class over-ear headphones featuring four-driver hybrid technology and Adaptive Active Noise Cancellation that analyses your sonic environment 48,000 times per second.',
+    specs: [
+      {l:'Driver', v:'40mm Planar + Dynamic'}, {l:'Freq. Response', v:'4 Hz – 40 kHz'},
+      {l:'ANC', v:'Adaptive 4-mic'}, {l:'Battery', v:'35 hrs ANC on'},
+      {l:'Codec', v:'aptX Lossless / LDAC'}, {l:'Weight', v:'254 g'},
+    ],
+    features: [
+      'Hi-Res Audio certified with LDAC 990kbps streaming',
+      'Spatial Audio with head-tracking via gyroscope',
+      'Transparency mode with natural ambience pass-through',
+      'Multipoint Bluetooth 5.3 — connect two devices simultaneously',
+      'Premium memory foam ear cushions with protein leather',
+    ]
+  },
+  {
+    id: 11, category: 'Audio', badge: 'popular', badgeText: 'Popular',
+    icon: '🔊', name: 'RoomFill 2.1 Pro', model: 'RF-21-PRO',
+    price: '€599', avail: 'in',
+    desc: 'Fill any room with powerful, room-tuned audio. The RoomFill 2.1 Pro uses adaptive EQ microphones to automatically calibrate sound to your space in real time.',
+    specs: [
+      {l:'Configuration', v:'2.1 Stereo + Sub'}, {l:'Power', v:'200W total RMS'},
+      {l:'Sub Driver', v:'8" long-throw'}, {l:'Connectivity', v:'Wi-Fi 6, AirPlay 2'},
+      {l:'Freq. Response', v:'28 Hz – 22 kHz'}, {l:'Dimensions', v:'2×320mm towers'},
+    ],
+    features: [
+      'Trueplay acoustic tuning adapts to room geometry',
+      'Multi-room grouping — play in sync with compatible speakers',
+      'Optical, HDMI ARC, RCA, USB-B, and Bluetooth 5.0 inputs',
+      'Dolby Atmos decoding up to 7.1.4 with external sources',
+      'App-controlled parametric EQ with 10-band control',
+    ]
+  },
+  {
+    id: 12, category: 'Audio', badge: 'new', badgeText: 'New',
+    icon: '🎵', name: 'BassNode TWS Elite', model: 'BN-TWS-ELT',
+    price: '€179', avail: 'in',
+    desc: 'True wireless earbuds that refuse to compromise. The BassNode TWS Elite delivers 11 mm custom drivers tuned for wide soundstage, alongside industry-leading 42 dB ANC.',
+    specs: [
+      {l:'Driver', v:'11mm Custom Dynamic'}, {l:'ANC', v:'42 dB max'},
+      {l:'Battery', v:'8 hrs + 24 case'}, {l:'Codec', v:'aptX Adaptive / AAC'},
+      {l:'IPX', v:'IPX5 sweat resistant'}, {l:'Latency', v:'≤ 40 ms'},
+    ],
+    features: [
+      'Hi-Res Audio Wireless certified (96kHz/24-bit)',
+      'Six-microphone array for crystal-clear calls',
+      'Customisable EQ and ANC strength via companion app',
+      'Wear sensor auto-pauses playback when removed',
+      'Fast charge: 10 min → 3 hours playback',
+    ]
+  },
+
+  // ── SMART HOME ──
+  {
+    id: 13, category: 'Smart Home', badge: 'new', badgeText: 'New',
+    icon: '🏠', name: 'ClimateIQ Smart Hub', model: 'CIQ-HUB-2',
+    price: '€349', avail: 'in',
+    desc: 'The central nervous system for your smart home. The ClimateIQ Smart Hub manages up to 200 connected devices, learning your habits to optimise energy usage and comfort automatically.',
+    specs: [
+      {l:'Protocols', v:'Matter, Zigbee 3.0, Z-Wave'}, {l:'Wi-Fi', v:'Wi-Fi 6E dual-band'},
+      {l:'Max Devices', v:'200'}, {l:'CPU', v:'Quad-Core 1.8 GHz'},
+      {l:'Storage', v:'8 GB eMMC'}, {l:'Ports', v:'2× USB-A, 1× RJ45'},
+    ],
+    features: [
+      'Matter 1.2 standard for universal device compatibility',
+      'AI energy optimisation reduces household energy use by up to 30%',
+      'Local processing — works offline, no cloud dependency',
+      'Integrates with Google Home, Amazon Alexa, Apple HomeKit',
+      'Voice assistant built-in with privacy mute switch',
+    ]
+  },
+  {
+    id: 14, category: 'Smart Home', badge: 'popular', badgeText: 'Popular',
+    icon: '💡', name: 'LumiSmart Colour Pack (4)', model: 'LS-COL-4PK',
+    price: '€89', avail: 'in',
+    desc: 'Transform any room with 16 million colours and tunable white from 1800K candle-warm to 6500K daylight. The LumiSmart bulbs work with voice and app control instantly.',
+    specs: [
+      {l:'Lumens', v:'1100 lm / bulb'}, {l:'Colour', v:'16M RGB + Warm White'},
+      {l:'Colour Temp', v:'1800K – 6500K'}, {l:'Connectivity', v:'Wi-Fi 2.4GHz'},
+      {l:'Protocol', v:'Matter / Zigbee'}, {l:'Lifespan', v:'25,000 hrs'},
+    ],
+    features: [
+      'Scene scheduling based on sunrise/sunset in your location',
+      'Sync with music, movies or games for immersive lighting',
+      'Grouped control for whole-room scenes',
+      'EU Energy Class A+ with up to 80% energy saving vs halogen',
+      'Hub-optional — connects directly to Wi-Fi',
+    ]
+  },
+  {
+    id: 15, category: 'Smart Home', badge: 'pro', badgeText: 'Pro',
+    icon: '📷', name: 'GuardEye 4K Pro', model: 'GE-4K-POE',
+    price: '€249', avail: 'low',
+    desc: 'Professional-grade outdoor security camera with 4K resolution, colour night vision, and 180-day encrypted local NVR storage. No subscription fees ever.',
+    specs: [
+      {l:'Resolution', v:'4K 8MP'}, {l:'Night Vision', v:'Colour up to 30m'},
+      {l:'Storage', v:'PoE NVR, 4TB ready'}, {l:'Connectivity', v:'PoE / Wi-Fi 6'},
+      {l:'Detection', v:'AI Person / Vehicle'}, {l:'IP Rating', v:'IP67'},
+    ],
+    features: [
+      'Colour night vision using F1.0 aperture low-light sensor',
+      'AI smart detection — zero false alerts from animals/shadows',
+      'Local encrypted H.265+ storage — no monthly fees',
+      'Two-way audio with active deterrence speaker',
+      'IK10 vandal-proof housing, -40°C to 60°C operating range',
+    ]
+  },
+
+  // ── CAMERAS ──
+  {
+    id: 16, category: 'Cameras', badge: 'pro', badgeText: 'Pro',
+    icon: '📸', name: 'OpticPro FF Mirrorless', model: 'OP-FF-45',
+    price: '€2,799', avail: 'in',
+    desc: 'Full-frame mirrorless photography redefined. The OpticPro FF shoots up to 30 fps in RAW with virtually zero blackout, making it equally at home at a studio shoot or a high-speed sports event.',
+    specs: [
+      {l:'Sensor', v:'45.7 MP BSI CMOS'}, {l:'ISO', v:'100 – 102,400'},
+      {l:'AF Points', v:'759 phase-detect'}, {l:'FPS', v:'30 RAW / 60 JPEG'},
+      {l:'Video', v:'8K RAW / 4K 60fps'}, {l:'Stabilisation', v:'7.5-stop IBIS'},
+    ],
+    features: [
+      'AI subject recognition: human, animal eye, vehicle, aircraft',
+      'Dual CFexpress Type-A + UHS-II SD card slots',
+      '8K RAW out via HDMI — log footage ready',
+      'Weather-sealed magnesium alloy body',
+      'Compatible with full lens ecosystem — 200+ native lenses',
+    ]
+  },
+  {
+    id: 17, category: 'Cameras', badge: 'popular', badgeText: 'Popular',
+    icon: '🎥', name: 'VlogCam 4K Pro', model: 'VC-4K-FLIP',
+    price: '€869', avail: 'in',
+    desc: 'The ideal content creation companion. Compact, selfie-friendly, and capable of cinema-grade colour science in your pocket — with a fully articulating touchscreen and class-leading stabilisation.',
+    specs: [
+      {l:'Sensor', v:'20.1 MP 1-inch'}, {l:'Video', v:'4K 120fps / 1080p 240fps'},
+      {l:'Stabilisation', v:'5-axis Active IS'}, {l:'AF', v:'Real-time Tracking'},
+      {l:'Display', v:'3.0" Flip Touchscreen'}, {l:'Weight', v:'292 g'},
+    ],
+    features: [
+      '1-inch sensor for beautiful shallow depth-of-field',
+      'S-Log3 and S-Cinetone colour profiles for grading',
+      'Live streaming via USB-C or Wi-Fi — plug-in-play',
+      'Vari-ND filter built in for smooth outdoor exposure',
+      'Up to 570 shots per charge; dual battery grip available',
+    ]
+  },
+
+  // ── COMPUTING ──
+  {
+    id: 18, category: 'Computing', badge: 'new', badgeText: 'New',
+    icon: '🖥️', name: 'WorkStation Pro Tower', model: 'WSP-T-R9',
+    price: '€3,499', avail: 'in',
+    desc: 'A workstation engineered for architects, engineers and data scientists. The WorkStation Pro delivers ECC memory reliability with consumer-tier gaming GPU raw compute performance.',
+    specs: [
+      {l:'CPU', v:'AMD Ryzen 9 7950X3D'}, {l:'RAM', v:'128 GB ECC DDR5'},
+      {l:'Storage', v:'2× 2TB NVMe RAID-0'}, {l:'GPU', v:'RTX 4090 24 GB'},
+      {l:'PSU', v:'1200W 80+ Platinum'}, {l:'Chassis', v:'E-ATX Aluminium'},
+    ],
+    features: [
+      '3D V-Cache for up to 40% faster simulation vs non-V-Cache',
+      '128 GB ECC RAM with error correction for critical workloads',
+      'ISV certification for AutoCAD, SolidWorks, Maya',
+      'Front hot-swap NVMe bay for fast drive swaps',
+      '5-year on-site warranty option available',
+    ]
+  },
+  {
+    id: 19, category: 'Computing', badge: 'popular', badgeText: 'Popular',
+    icon: '🖥️', name: 'UltraWide 34" Curved', model: 'UW-34-WQHD',
+    price: '€749', avail: 'in',
+    desc: 'A 34" ultrawide curved monitor that wraps your peripheral vision for immersive productivity. Calibrated to Delta E < 2, it suits creative professionals and multi-tasking power users equally.',
+    specs: [
+      {l:'Panel', v:'34" IPS Nano Curved'}, {l:'Resolution', v:'3440 × 1440 WQHD'},
+      {l:'Refresh', v:'165 Hz'}, {l:'Response', v:'1ms GtG'},
+      {l:'Colour', v:'99% sRGB / 97% DCI-P3'}, {l:'Ports', v:'HDMI 2.1, DP 1.4, USB-C'},
+    ],
+    features: [
+      'USB-C 96W power delivery — one cable for laptop users',
+      'Height, tilt, swivel, and pivot stand adjustment',
+      'KVM switch for two-PC one-monitor setup',
+      'Eye-care: flicker-free, low blue light, ambient sensor',
+      'Nano IPS technology for wide viewing angles with no colour shift',
+    ]
+  },
+  {
+    id: 20, category: 'Computing', badge: 'sale', badgeText: 'Sale',
+    icon: '⌨️', name: 'TactiKey Pro Mech', model: 'TK-PRO-TKL',
+    price: '€129', avail: 'in',
+    desc: 'A tenkeyless mechanical keyboard with premium gasket-mount construction for a quieter, bouncier typing feel. Hot-swappable switches let you change feel without soldering.',
+    specs: [
+      {l:'Layout', v:'TKL 87-Key'}, {l:'Switch', v:'Hot-swap POM Sockets'},
+      {l:'Included', v:'Brown Tactile'}, {l:'Lighting', v:'Per-key RGB'},
+      {l:'Poll Rate', v:'1000 Hz'}, {l:'Connection', v:'USB-C + Wireless 2.4G'},
+    ],
+    features: [
+      'Gasket PCB mount for cushioned, premium typing feel',
+      'Aluminium top frame with PVD-coated weight',
+      '5-layer sandwich dampening foam for silent actuation',
+      'Via-compatible open-source remapping software',
+      '2.4 GHz wireless with 8000 mAh USB rechargeable base',
+    ]
+  },
+];
+
+const BRANDS = [
+  'Samsung','Sony','LG','Philips','Panasonic','Apple','ASUS','Dell',
+  'Lenovo','HP','Canon','Nikon','Bose','JBL','Sonos','Xiaomi',
+  'OnePlus','Google','Logitech','Razer','Western Digital','Seagate'
+];
+
+const TICKER_ITEMS = [
+  'Cyprus\'s Premier Electronics Distributor',
+  'EU Certified Products',
+  'Full Manufacturer Warranty',
+  'Expert Technical Support',
+  'Delivery Across Cyprus',
+  'Commercial & Retail Solutions',
+  '18+ Years of Trusted Service',
+];
+
+// Render ticker
+const tickerEl = document.getElementById('ticker');
+const tickerContent = TICKER_ITEMS.map(t => `<span class="ticker-item">${t}<span class="ticker-dot">·</span></span>`).join('');
+tickerEl.innerHTML = tickerContent + tickerContent; // duplicate for seamless loop
+
+// Render brands
+const brandsEl = document.getElementById('brandsList');
+brandsEl.innerHTML = BRANDS.map(b => `<div class="brand-item">${b}</div>`).join('');
+
+// Gather categories
+const categories = ['All', ...new Set(PRODUCTS.map(p => p.category))];
+
+// Render filter bar
+const filterBar = document.getElementById('filterBar');
+filterBar.innerHTML = categories.map((c,i) =>
+  `<button class="filter-btn ${i===0?'active':''}" data-cat="${c}" onclick="setFilter('${c}',this)">${c}</button>`
+).join('');
+
+function setFilter(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+function renderProducts(cat) {
+  const grid = document.getElementById('productsGrid');
+  const filtered = cat === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card" onclick="openModal(${p.id})">
+      <span class="product-badge badge-${p.badge}">${p.badgeText}</span>
+      <span class="product-icon">${p.icon}</span>
+      <div class="product-name">${p.name}</div>
+      <div class="product-model">${p.model}</div>
+      <p class="product-desc">${p.desc.substring(0,120)}…</p>
+      <div class="product-specs">
+        ${p.specs.slice(0,4).map(s => `<div class="spec-item"><span class="spec-label">${s.l}</span><span class="spec-val">${s.v}</span></div>`).join('')}
+      </div>
+      <div class="product-footer">
+        <div>
+          <div class="product-price">${p.price}</div>
+          <div class="product-price-vat">excl. VAT</div>
+        </div>
+        <div class="product-avail">
+          <span class="avail-dot ${p.avail}"></span>
+          ${p.avail === 'in' ? 'In Stock' : p.avail === 'low' ? 'Low Stock' : 'Pre-Order'}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+renderProducts('All');
+
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('mBadge').innerHTML = `<span class="product-badge badge-${p.badge}">${p.badgeText}</span>`;
+  document.getElementById('mTitle').textContent = p.name;
+  document.getElementById('mModel').textContent = p.model;
+  document.getElementById('mDesc').textContent = p.desc;
+  document.getElementById('mSpecs').innerHTML = p.specs.map(s =>
+    `<div class="modal-spec"><span class="modal-spec-label">${s.l}</span><div class="modal-spec-val">${s.v}</div></div>`
+  ).join('');
+  document.getElementById('mFeatures').innerHTML = p.features.map(f =>
+    `<li>${f}</li>`
+  ).join('');
+  document.getElementById('mPrice').textContent = p.price;
+  const availLabel = p.avail === 'in' ? 'In Stock' : p.avail === 'low' ? 'Low Stock' : 'Pre-Order';
+  document.getElementById('mAvail').innerHTML = `<span class="avail-dot ${p.avail}"></span>${availLabel}`;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.querySelector('.modal-close').addEventListener('click', () => {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+});
+
+// Scroll fade-in
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
